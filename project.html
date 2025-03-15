@@ -1,127 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-    <style>
-        /* Reset some default styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f7fc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.container {
-    background-color: #a4e1cd;
-    padding: 30px;
-    border-radius: 89087989px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px;
-    text-align: center;
-}
-
-h1 {
-    font-size: 2em;
-    margin-bottom: 203523px;
-}
-
-.registration-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-label {
-    text-align: left;
-    font-size: 1em;
-    font-weight: bold;
-}
-
-input, select {
-    padding: 10px;
-    font-size: 1em;
-    border: 1px solid #e3f38a;
-    border-radius: 5px;
-}
-
-input[type="date"], select {
-    cursor: pointer;
-}
-
-button {
-    padding: 1000px;
-    font-size: 1.1em;
-    background-color: #3e32e1;
-    color: white;
-    border: none;
-    border-radius: 55576px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #3975bd;
-}
-
-.checkbox-group {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.checkbox-group input {
-    transform: scale(1.2);
-}
-
-
-    </style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exam Registration</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="style.css" rel="stylesheet">
 </head>
+
 <body>
-
     <div class="container">
-        <h1>Exam Registration Form</h1>
+        <h1>Exam Registration</h1>
+        <form action="#" method="POST" class="registration-form" id="registrationForm">
+            <div class="form-group">
+                <label for="full-name">Full Name</label>
+                <input type="text" id="full-name" name="full-name" required>
+                <span class="error-message" id="nameError"></span>
+            </div>
 
-        <form action="#" method="POST" class="registration-form">
-            <label for="full-name">Full Name</label>
-           
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error-message" id="emailError"></span>
+            </div>
 
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required>
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+                <span class="error-message" id="dobError"></span>
+            </div>
 
-            <label for="dob">Date of Birth</label>
-            <input type="date" id="dob" name="dob" required>
+            <div class="form-group">
+                <label for="exam">Select Exam</label>
+                <select id="exam" name="exam" required>
+                    <option value="">-- Select an exam --</option>
+                    <option value="math">Mathematics</option>
+                    <option value="science">Science</option>
+                    <option value="english">English</option>
+                </select>
+                <span class="error-message" id="examError"></span>
+            </div>
 
-            <label for="exam">Select Exam</label>
-            <select id="exam" name="exam" required>
-                <option value="">--Select an exam--</option>
-                <option value="math">Mathematics</option>
-                <option value="science">Science</option>
-                <option value="english">English</option>
-            </select>
-
-            <label for="exam-date">Preferred Exam Date</label>
-            <input type="date" id="exam-date" name="exam-date" required>
+            <div class="form-group">
+                <label for="exam-date">Preferred Exam Date</label>
+                <input type="date" id="exam-date" name="exam-date" required>
+                <span class="error-message" id="examDateError"></span>
+            </div>
 
             <div class="checkbox-group">
                 <input type="checkbox" id="terms" name="terms" required>
                 <label for="terms">I agree to the terms and conditions</label>
+                <span class="error-message" id="termsError"></span>
             </div>
 
-            <button type="submit">Register</button>
+            <button type="submit">Register Now</button>
+            <div class="success-message" id="successMessage"></div>
         </form>
     </div>
 
+   <script src="script.js"></script>
 </body>
 </html>
